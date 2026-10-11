@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Upload</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <h1>Student Upload</h1>
+        <span id="studentCount" class="count-pill">0 students</span>
+      </header>
+
+      <main class="app-layout">
+        <section class="panel form-panel">
+          <h2>Add student</h2>
+
+          <form id="studentForm" novalidate>
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" autocomplete="name" />
+              <small id="nameError" class="error"></small>
+            </div>
+
+            <div class="field">
+              <label for="matric">Matric number</label>
+              <input id="matric" name="matric" type="text" inputmode="numeric" placeholder="23/024145123" />
+              <small id="matricError" class="error"></small>
+            </div>
+
+            <div class="field">
+              <label for="level">Level</label>
+              <select id="level" name="level">
+                <option value="">Choose level</option>
+                <option value="100">100 Level</option>
+                <option value="200">200 Level</option>
+                <option value="300">300 Level</option>
+                <option value="400">400 Level</option>
+                <option value="500">500 Level</option>
+                <option value="600">600 Level</option>
+              </select>
+              <small id="levelError" class="error"></small>
+            </div>
+
+            <div class="field">
+              <label for="department">Department</label>
+              <input id="department" name="department" list="departmentOptions" type="text" placeholder="Computer Science" />
+              <datalist id="departmentOptions">
+                <option value="Computer Science"></option>
+                <option value="Accounting"></option>
+                <option value="Mass Communication"></option>
+                <option value="Business Administration"></option>
+                <option value="Economics"></option>
+                <option value="Microbiology"></option>
+                <option value="Electrical Engineering"></option>
+                <option value="Mathematics"></option>
+                <option value="Chemistry"></option>
+                <option value="Physics"></option>
+              </datalist>
+              <small id="departmentError" class="error"></small>
+            </div>
+
+            <button type="submit" class="primary-button">Add student</button>
+          </form>
+
+          <div class="helper-row">
+            <button id="sampleButton" class="secondary-button" type="button">Add 3 sample students</button>
+          </div>
+        </section>
+
+        <section class="panel register-panel">
+          <div class="register-header">
+            <h2>Student register</h2>
+            <div class="register-actions">
+              <button id="toggleNames" class="ghost-button" type="button">Done, show names</button>
+              <button id="removeLastButton" class="danger-button" type="button" disabled>Remove last</button>
+            </div>
+          </div>
+
+          <div id="statusMessage" class="status-message" aria-live="polite"></div>
+
+          <div id="emptyState" class="empty-state">
+            <p>No students have been added yet.</p>
+            <button id="emptyAddSamples" class="secondary-button" type="button">Add 3 sample students</button>
+          </div>
+
+          <div id="namesPanel" class="names-panel hidden">
+            <h3>Student names</h3>
+            <div id="nameChips" class="chip-list"></div>
+          </div>
+
+          <div id="studentGrid" class="student-grid" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
